@@ -363,8 +363,14 @@ class DeckStore {
         .toList();
   }
 
-  static Future<bool> submitReview(String wordId, {required SrsRating rating, required int durationSeconds}) async {
-    final result = await api.submitReview(wordId, rating: rating, durationSeconds: durationSeconds);
+  static Future<bool> submitReview(
+    String wordId, {
+    required SrsRating rating,
+    required int durationSeconds,
+    String? difficultyMode,
+  }) async {
+    final result =
+        await api.submitReview(wordId, rating: rating, durationSeconds: durationSeconds, difficultyMode: difficultyMode);
     if (result.isSuccess) {
       _applyReviewResult(wordId, result);
       revision.value++;
@@ -391,7 +397,12 @@ class DeckStore {
         ),
       );
     }
-    writeQueue.enqueue(PendingWrite.submitReview(localId: wordId, rating: rating, durationSeconds: durationSeconds));
+    writeQueue.enqueue(PendingWrite.submitReview(
+      localId: wordId,
+      rating: rating,
+      durationSeconds: durationSeconds,
+      difficultyMode: difficultyMode,
+    ));
     await writeQueue.persist();
     revision.value++;
     await _persist();

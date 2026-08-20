@@ -25,6 +25,7 @@ class PendingWrite {
     this.rating,
     this.durationSeconds,
     this.starterKey,
+    this.difficultyMode,
   });
 
   factory PendingWrite.createDeck({
@@ -84,8 +85,19 @@ class PendingWrite {
   factory PendingWrite.deleteCard({required String localId}) =>
       PendingWrite._(kind: PendingWriteKind.deleteCard, localId: localId);
 
-  factory PendingWrite.submitReview({required String localId, required SrsRating rating, required int durationSeconds}) =>
-      PendingWrite._(kind: PendingWriteKind.submitReview, localId: localId, rating: rating, durationSeconds: durationSeconds);
+  factory PendingWrite.submitReview({
+    required String localId,
+    required SrsRating rating,
+    required int durationSeconds,
+    String? difficultyMode,
+  }) =>
+      PendingWrite._(
+        kind: PendingWriteKind.submitReview,
+        localId: localId,
+        rating: rating,
+        durationSeconds: durationSeconds,
+        difficultyMode: difficultyMode,
+      );
 
   final PendingWriteKind kind;
   final String localId;
@@ -98,6 +110,7 @@ class PendingWrite {
   final String? imageUrl;
   final SrsRating? rating;
   final int? durationSeconds;
+  final String? difficultyMode;
 
   /// Only ever set on a `createDeck` for the app's own starter content.
   final String? starterKey;
@@ -119,6 +132,7 @@ class PendingWrite {
       rating: rating,
       durationSeconds: durationSeconds,
       starterKey: starterKey,
+      difficultyMode: difficultyMode,
     );
   }
 
@@ -135,6 +149,7 @@ class PendingWrite {
         'rating': rating?.name,
         'durationSeconds': durationSeconds,
         'starterKey': starterKey,
+        'difficultyMode': difficultyMode,
       };
 
   static PendingWrite? fromJson(Map<String, dynamic> json) {
@@ -152,6 +167,7 @@ class PendingWrite {
         rating: json['rating'] == null ? null : SrsRating.values.byName(json['rating'] as String),
         durationSeconds: json['durationSeconds'] as int?,
         starterKey: json['starterKey'] as String?,
+        difficultyMode: json['difficultyMode'] as String?,
       );
     } catch (_) {
       return null;
@@ -315,7 +331,12 @@ class DeckWriteQueue {
 
       case PendingWriteKind.submitReview:
         if (write.localId.startsWith('pending_')) return const _ValidationFailed();
-        final result = await api.submitReview(write.localId, rating: write.rating!, durationSeconds: write.durationSeconds ?? 0);
+        final result = await api.submitReview(
+          write.localId,
+          rating: write.rating!,
+          durationSeconds: write.durationSeconds ?? 0,
+          difficultyMode: write.difficultyMode,
+        );
         if (result.isSuccess) return const _Applied(null);
         return result.outcome == DeckOutcome.validationError ? const _ValidationFailed() : const _NetworkFailed();
     }

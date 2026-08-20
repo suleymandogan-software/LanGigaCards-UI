@@ -509,6 +509,25 @@ const _deckLabels = <String, _DeckLabel>{
       'TR': 'Etrafındaki insanlar',
     },
   ),
+  'business': _DeckLabel(
+    {
+      'GB': 'Business Basics', 'ES': 'Fundamentos de negocios', 'FR': 'Bases du monde professionnel',
+      'DE': 'Business-Grundlagen', 'IT': 'Basi del business', 'PT': 'Fundamentos de negócios',
+      'JP': 'ビジネスの基本', 'KR': '비즈니스 기초', 'CN': '商务基础', 'TR': 'İş Hayatı Temelleri',
+    },
+    {
+      'GB': 'The office, meetings, and getting work done',
+      'ES': 'La oficina, las reuniones y el trabajo diario',
+      'FR': 'Le bureau, les réunions et le travail au quotidien',
+      'DE': 'Büro, Besprechungen und die tägliche Arbeit',
+      'IT': 'Ufficio, riunioni e lavoro quotidiano',
+      'PT': 'O escritório, as reuniões e o trabalho do dia a dia',
+      'JP': 'オフィス、会議、日々の仕事',
+      'KR': '사무실, 회의 그리고 업무',
+      'CN': '办公室、会议和日常工作',
+      'TR': 'Ofis, toplantılar ve günlük iş',
+    },
+  ),
   'time': _DeckLabel(
     {
       'GB': 'Time & Days', 'ES': 'Tiempo y días', 'FR': 'Temps et jours',
@@ -529,6 +548,81 @@ const _deckLabels = <String, _DeckLabel>{
     },
   ),
 };
+
+/// Meetings, contracts, and the rest of a workday.
+const _business = <_Word>[
+  _Word({
+    'GB': 'Meeting', 'ES': 'Reunión', 'FR': 'Réunion', 'DE': 'Besprechung', 'IT': 'Riunione',
+    'PT': 'Reunião', 'JP': '会議', 'KR': '회의', 'CN': '会议', 'TR': 'Toplantı',
+  }),
+  _Word({
+    'GB': 'Office', 'ES': 'Oficina', 'FR': 'Bureau', 'DE': 'Büro', 'IT': 'Ufficio',
+    'PT': 'Escritório', 'JP': 'オフィス', 'KR': '사무실', 'CN': '办公室', 'TR': 'Ofis',
+  }),
+  _Word({
+    'GB': 'Email', 'ES': 'Correo electrónico', 'FR': 'E-mail', 'DE': 'E-Mail', 'IT': 'Email',
+    'PT': 'E-mail', 'JP': 'メール', 'KR': '이메일', 'CN': '电子邮件', 'TR': 'E-posta',
+  }),
+  _Word({
+    'GB': 'Contract', 'ES': 'Contrato', 'FR': 'Contrat', 'DE': 'Vertrag', 'IT': 'Contratto',
+    'PT': 'Contrato', 'JP': '契約', 'KR': '계약', 'CN': '合同', 'TR': 'Sözleşme',
+  }),
+  _Word({
+    'GB': 'Manager', 'ES': 'Gerente', 'FR': 'Directeur', 'DE': 'Manager', 'IT': 'Direttore',
+    'PT': 'Gerente', 'JP': 'マネージャー', 'KR': '매니저', 'CN': '经理', 'TR': 'Yönetici',
+  }),
+  _Word({
+    'GB': 'Colleague', 'ES': 'Colega', 'FR': 'Collègue', 'DE': 'Kollege', 'IT': 'Collega',
+    'PT': 'Colega', 'JP': '同僚', 'KR': '동료', 'CN': '同事', 'TR': 'Meslektaş',
+  }),
+  _Word({
+    'GB': 'Salary', 'ES': 'Salario', 'FR': 'Salaire', 'DE': 'Gehalt', 'IT': 'Stipendio',
+    'PT': 'Salário', 'JP': '給料', 'KR': '급여', 'CN': '工资', 'TR': 'Maaş',
+  }),
+  _Word({
+    'GB': 'Deadline', 'ES': 'Fecha límite', 'FR': 'Date limite', 'DE': 'Frist', 'IT': 'Scadenza',
+    'PT': 'Prazo', 'JP': '締め切り', 'KR': '마감일', 'CN': '截止日期', 'TR': 'Son tarih',
+  }),
+  _Word({
+    'GB': 'Presentation', 'ES': 'Presentación', 'FR': 'Présentation', 'DE': 'Präsentation', 'IT': 'Presentazione',
+    'PT': 'Apresentação', 'JP': 'プレゼン', 'KR': '발표', 'CN': '演示', 'TR': 'Sunum',
+  }),
+  _Word({
+    'GB': 'Client', 'ES': 'Cliente', 'FR': 'Client', 'DE': 'Kunde', 'IT': 'Cliente',
+    'PT': 'Cliente', 'JP': 'クライアント', 'KR': '고객', 'CN': '客户', 'TR': 'Müşteri',
+  }),
+];
+
+/// Which of the learner's onboarding categories/purposes make a topic deck
+/// more relevant to them. Names match the backend's real seeded Category
+/// and LearningPurpose rows exactly (case-insensitive) — see
+/// `CategoriesController`/`LearningPurposesController` on VocabGrid.
+///
+/// A deck slug absent from this map (Basics, Everyday, Numbers, Colours,
+/// Time) is treated as universally useful rather than topic-specific, and
+/// always sorts ahead of an unmatched topic deck but behind a matched one.
+const _deckRelevance = {
+  'food': (categories: ['Food'], purposes: <String>[]),
+  'travel': (categories: ['Travel'], purposes: ['Travel', 'Relocation']),
+  'family': (categories: ['Family'], purposes: <String>[]),
+  'business': (categories: ['Business'], purposes: ['Business']),
+};
+
+/// Category matches count for more than purpose matches: picking "Food" as
+/// a topic is a direct, unambiguous signal, while a purpose like "Travel"
+/// is a broader intent that only loosely implies interest in any one deck.
+int _relevanceScore(String slug, Set<String> myCategories, Set<String> myPurposes) {
+  final tags = _deckRelevance[slug];
+  if (tags == null) return 0;
+  var score = 0;
+  for (final category in tags.categories) {
+    if (myCategories.contains(category.toUpperCase())) score += 2;
+  }
+  for (final purpose in tags.purposes) {
+    if (myPurposes.contains(purpose.toUpperCase())) score += 1;
+  }
+  return score;
+}
 
 /// The sample decks a learner starts with, built for their own language pair.
 class StarterContent {
@@ -588,15 +682,29 @@ class StarterContent {
   /// Builds the starter decks and cards for a learner whose native language is
   /// [nativeCode] and who is learning [targetCode].
   ///
+  /// [categories] and [purposes] are the learner's own onboarding selections
+  /// (real names, e.g. from `UserProfile.categories`/`learningPurposes`) —
+  /// decks matching them are surfaced first, so a learner who picked
+  /// "Business" sees the Business deck before the generic Colours deck. This
+  /// only reorders; every deck a learner would have gotten before still
+  /// gets built regardless of what they picked, so no one ends up with less
+  /// starter content than they would have without this.
+  ///
   /// Cards whose two sides come out identical — "No" in English and Spanish —
   /// are dropped rather than shipped as a card that teaches nothing.
   static ({List<Deck> decks, List<FlashCard> cards}) buildFor({
     required String targetCode,
     required String targetName,
     required String nativeCode,
+    List<String> categories = const [],
+    List<String> purposes = const [],
   }) {
+    final myCategories = categories.map((c) => c.toUpperCase()).toSet();
+    final myPurposes = purposes.map((p) => p.toUpperCase()).toSet();
+
     final decks = <Deck>[];
     final cards = <FlashCard>[];
+    final scoreByDeckId = <String, int>{};
 
     void addDeck({
       required String slug,
@@ -640,6 +748,7 @@ class StarterContent {
         accentColor: color,
       ));
       cards.addAll(deckCards);
+      scoreByDeckId[deckId] = _relevanceScore(slug, myCategories, myPurposes);
     }
 
     addDeck(slug: 'basics',   emoji: '👋',   color: const Color(0xFF6C5CE7), words: _basics);
@@ -649,8 +758,20 @@ class StarterContent {
     addDeck(slug: 'travel',   emoji: '✈️',   color: const Color(0xFF0EA5E9), words: _travel);
     addDeck(slug: 'colours',  emoji: '🎨',   color: const Color(0xFFEC4899), words: _colours);
     addDeck(slug: 'family',   emoji: '👨‍👩‍👧', color: const Color(0xFF8B5CF6), words: _family);
+    addDeck(slug: 'business', emoji: '💼',   color: const Color(0xFF334155), words: _business);
     addDeck(slug: 'time',     emoji: '🗓️',   color: const Color(0xFFF59E0B), words: _timeAndDays);
 
-    return (decks: decks, cards: cards);
+    // Highest-relevance decks first; a stable index-based tiebreak keeps
+    // equally-scored decks (almost always score 0, i.e. every deck when
+    // the learner picked no matching category/purpose) in the order they
+    // were added above, rather than an unspecified sort order.
+    final order = List.generate(decks.length, (i) => i)
+      ..sort((a, b) {
+        final scoreDiff = scoreByDeckId[decks[b].id]!.compareTo(scoreByDeckId[decks[a].id]!);
+        return scoreDiff != 0 ? scoreDiff : a.compareTo(b);
+      });
+    final orderedDecks = [for (final i in order) decks[i]];
+
+    return (decks: orderedDecks, cards: cards);
   }
 }
