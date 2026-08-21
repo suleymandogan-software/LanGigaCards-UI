@@ -134,92 +134,8 @@ const _numbers = <_Word>[
 ];
 
 /// What you order, buy and cook.
-const _food = <_Word>[
-  _Word({
-    'GB': 'Milk', 'ES': 'Leche', 'FR': 'Lait', 'DE': 'Milch', 'IT': 'Latte',
-    'PT': 'Leite', 'JP': '牛乳', 'KR': '우유', 'CN': '牛奶', 'TR': 'Süt',
-  }),
-  _Word({
-    'GB': 'Coffee', 'ES': 'Café', 'FR': 'Café', 'DE': 'Kaffee', 'IT': 'Caffè',
-    'PT': 'Café', 'JP': 'コーヒー', 'KR': '커피', 'CN': '咖啡', 'TR': 'Kahve',
-  }),
-  _Word({
-    'GB': 'Tea', 'ES': 'Té', 'FR': 'Thé', 'DE': 'Tee', 'IT': 'Tè',
-    'PT': 'Chá', 'JP': 'お茶', 'KR': '차', 'CN': '茶', 'TR': 'Çay',
-  }),
-  _Word({
-    'GB': 'Apple', 'ES': 'Manzana', 'FR': 'Pomme', 'DE': 'Apfel', 'IT': 'Mela',
-    'PT': 'Maçã', 'JP': 'りんご', 'KR': '사과', 'CN': '苹果', 'TR': 'Elma',
-  }),
-  _Word({
-    'GB': 'Cheese', 'ES': 'Queso', 'FR': 'Fromage', 'DE': 'Käse', 'IT': 'Formaggio',
-    'PT': 'Queijo', 'JP': 'チーズ', 'KR': '치즈', 'CN': '奶酪', 'TR': 'Peynir',
-  }),
-  _Word({
-    'GB': 'Egg', 'ES': 'Huevo', 'FR': 'Œuf', 'DE': 'Ei', 'IT': 'Uovo',
-    'PT': 'Ovo', 'JP': '卵', 'KR': '계란', 'CN': '鸡蛋', 'TR': 'Yumurta',
-  }),
-  _Word({
-    'GB': 'Fish', 'ES': 'Pescado', 'FR': 'Poisson', 'DE': 'Fisch', 'IT': 'Pesce',
-    'PT': 'Peixe', 'JP': '魚', 'KR': '생선', 'CN': '鱼', 'TR': 'Balık',
-  }),
-  _Word({
-    'GB': 'Meat', 'ES': 'Carne', 'FR': 'Viande', 'DE': 'Fleisch', 'IT': 'Carne',
-    'PT': 'Carne', 'JP': '肉', 'KR': '고기', 'CN': '肉', 'TR': 'Et',
-  }),
-  _Word({
-    'GB': 'Rice', 'ES': 'Arroz', 'FR': 'Riz', 'DE': 'Reis', 'IT': 'Riso',
-    'PT': 'Arroz', 'JP': 'ご飯', 'KR': '밥', 'CN': '米饭', 'TR': 'Pirinç',
-  }),
-  _Word({
-    'GB': 'Salt', 'ES': 'Sal', 'FR': 'Sel', 'DE': 'Salz', 'IT': 'Sale',
-    'PT': 'Sal', 'JP': '塩', 'KR': '소금', 'CN': '盐', 'TR': 'Tuz',
-  }),
-];
 
 /// Getting around a city you don't know yet.
-const _travel = <_Word>[
-  _Word({
-    'GB': 'Airport', 'ES': 'Aeropuerto', 'FR': 'Aéroport', 'DE': 'Flughafen', 'IT': 'Aeroporto',
-    'PT': 'Aeroporto', 'JP': '空港', 'KR': '공항', 'CN': '机场', 'TR': 'Havalimanı',
-  }),
-  _Word({
-    'GB': 'Station', 'ES': 'Estación', 'FR': 'Gare', 'DE': 'Bahnhof', 'IT': 'Stazione',
-    'PT': 'Estação', 'JP': '駅', 'KR': '역', 'CN': '车站', 'TR': 'İstasyon',
-  }),
-  _Word({
-    'GB': 'Ticket', 'ES': 'Billete', 'FR': 'Billet', 'DE': 'Fahrkarte', 'IT': 'Biglietto',
-    'PT': 'Bilhete', 'JP': '切符', 'KR': '표', 'CN': '票', 'TR': 'Bilet',
-  }),
-  _Word({
-    'GB': 'Hotel', 'ES': 'Hotel', 'FR': 'Hôtel', 'DE': 'Hotel', 'IT': 'Hotel',
-    'PT': 'Hotel', 'JP': 'ホテル', 'KR': '호텔', 'CN': '酒店', 'TR': 'Otel',
-  }),
-  _Word({
-    'GB': 'Map', 'ES': 'Mapa', 'FR': 'Carte', 'DE': 'Karte', 'IT': 'Mappa',
-    'PT': 'Mapa', 'JP': '地図', 'KR': '지도', 'CN': '地图', 'TR': 'Harita',
-  }),
-  _Word({
-    'GB': 'Left', 'ES': 'Izquierda', 'FR': 'Gauche', 'DE': 'Links', 'IT': 'Sinistra',
-    'PT': 'Esquerda', 'JP': '左', 'KR': '왼쪽', 'CN': '左', 'TR': 'Sol',
-  }),
-  _Word({
-    'GB': 'Right', 'ES': 'Derecha', 'FR': 'Droite', 'DE': 'Rechts', 'IT': 'Destra',
-    'PT': 'Direita', 'JP': '右', 'KR': '오른쪽', 'CN': '右', 'TR': 'Sağ',
-  }),
-  _Word({
-    'GB': 'Passport', 'ES': 'Pasaporte', 'FR': 'Passeport', 'DE': 'Reisepass', 'IT': 'Passaporto',
-    'PT': 'Passaporte', 'JP': 'パスポート', 'KR': '여권', 'CN': '护照', 'TR': 'Pasaport',
-  }),
-  _Word({
-    'GB': 'Car', 'ES': 'Coche', 'FR': 'Voiture', 'DE': 'Auto', 'IT': 'Auto',
-    'PT': 'Carro', 'JP': '車', 'KR': '자동차', 'CN': '汽车', 'TR': 'Araba',
-  }),
-  _Word({
-    'GB': 'Road', 'ES': 'Camino', 'FR': 'Route', 'DE': 'Straße', 'IT': 'Strada',
-    'PT': 'Estrada', 'JP': '道', 'KR': '길', 'CN': '路', 'TR': 'Yol',
-  }),
-];
 
 /// Colours.
 const _colours = <_Word>[
@@ -266,48 +182,6 @@ const _colours = <_Word>[
 ];
 
 /// The people around you.
-const _family = <_Word>[
-  _Word({
-    'GB': 'Mother', 'ES': 'Madre', 'FR': 'Mère', 'DE': 'Mutter', 'IT': 'Madre',
-    'PT': 'Mãe', 'JP': '母', 'KR': '어머니', 'CN': '母亲', 'TR': 'Anne',
-  }),
-  _Word({
-    'GB': 'Father', 'ES': 'Padre', 'FR': 'Père', 'DE': 'Vater', 'IT': 'Padre',
-    'PT': 'Pai', 'JP': '父', 'KR': '아버지', 'CN': '父亲', 'TR': 'Baba',
-  }),
-  _Word({
-    'GB': 'Sister', 'ES': 'Hermana', 'FR': 'Sœur', 'DE': 'Schwester', 'IT': 'Sorella',
-    'PT': 'Irmã', 'JP': '姉妹', 'KR': '자매', 'CN': '姐妹', 'TR': 'Kız kardeş',
-  }),
-  _Word({
-    'GB': 'Brother', 'ES': 'Hermano', 'FR': 'Frère', 'DE': 'Bruder', 'IT': 'Fratello',
-    'PT': 'Irmão', 'JP': '兄弟', 'KR': '형제', 'CN': '兄弟', 'TR': 'Erkek kardeş',
-  }),
-  _Word({
-    'GB': 'Child', 'ES': 'Niño', 'FR': 'Enfant', 'DE': 'Kind', 'IT': 'Bambino',
-    'PT': 'Criança', 'JP': '子供', 'KR': '아이', 'CN': '孩子', 'TR': 'Çocuk',
-  }),
-  _Word({
-    'GB': 'Family', 'ES': 'Familia', 'FR': 'Famille', 'DE': 'Familie', 'IT': 'Famiglia',
-    'PT': 'Família', 'JP': '家族', 'KR': '가족', 'CN': '家庭', 'TR': 'Aile',
-  }),
-  _Word({
-    'GB': 'Grandmother', 'ES': 'Abuela', 'FR': 'Grand-mère', 'DE': 'Großmutter', 'IT': 'Nonna',
-    'PT': 'Avó', 'JP': '祖母', 'KR': '할머니', 'CN': '祖母', 'TR': 'Büyükanne',
-  }),
-  _Word({
-    'GB': 'Grandfather', 'ES': 'Abuelo', 'FR': 'Grand-père', 'DE': 'Großvater', 'IT': 'Nonno',
-    'PT': 'Avô', 'JP': '祖父', 'KR': '할아버지', 'CN': '祖父', 'TR': 'Büyükbaba',
-  }),
-  _Word({
-    'GB': 'Man', 'ES': 'Hombre', 'FR': 'Homme', 'DE': 'Mann', 'IT': 'Uomo',
-    'PT': 'Homem', 'JP': '男', 'KR': '남자', 'CN': '男人', 'TR': 'Adam',
-  }),
-  _Word({
-    'GB': 'Woman', 'ES': 'Mujer', 'FR': 'Femme', 'DE': 'Frau', 'IT': 'Donna',
-    'PT': 'Mulher', 'JP': '女', 'KR': '여자', 'CN': '女人', 'TR': 'Kadın',
-  }),
-];
 
 /// Saying when something happens.
 const _timeAndDays = <_Word>[
@@ -433,44 +307,6 @@ const _deckLabels = <String, _DeckLabel>{
       'TR': 'Birden ona kadar saymak',
     },
   ),
-  'food': _DeckLabel(
-    {
-      'GB': 'Food & Drink', 'ES': 'Comida y bebida', 'FR': 'Manger et boire',
-      'DE': 'Essen & Trinken', 'IT': 'Cibo e bevande', 'PT': 'Comida e bebida',
-      'JP': '食べ物と飲み物', 'KR': '음식과 음료', 'CN': '食物与饮品', 'TR': 'Yiyecek ve İçecek',
-    },
-    {
-      'GB': 'What you order, buy and cook',
-      'ES': 'Lo que pides, compras y cocinas',
-      'FR': 'Ce que vous commandez, achetez et cuisinez',
-      'DE': 'Was man bestellt, kauft und kocht',
-      'IT': 'Ciò che ordini, compri e cucini',
-      'PT': 'O que você pede, compra e cozinha',
-      'JP': '注文し、買い、料理するもの',
-      'KR': '주문하고 사고 요리하는 것',
-      'CN': '你点的、买的和做的',
-      'TR': 'Sipariş ettiğin, aldığın ve pişirdiğin şeyler',
-    },
-  ),
-  'travel': _DeckLabel(
-    {
-      'GB': 'Travel & Directions', 'ES': 'Viajes y direcciones', 'FR': 'Voyage et directions',
-      'DE': 'Reisen & Wegbeschreibung', 'IT': 'Viaggi e indicazioni', 'PT': 'Viagem e direções',
-      'JP': '旅行と道案内', 'KR': '여행과 길 찾기', 'CN': '旅行与问路', 'TR': 'Seyahat ve Yön Tarifi',
-    },
-    {
-      'GB': 'Getting around a city you do not know yet',
-      'ES': 'Moverse por una ciudad que aún no conoces',
-      'FR': 'Se repérer dans une ville encore inconnue',
-      'DE': 'Sich in einer fremden Stadt zurechtfinden',
-      'IT': 'Muoversi in una città che non conosci ancora',
-      'PT': 'Circular por uma cidade que ainda não conhece',
-      'JP': 'まだ知らない街を歩く',
-      'KR': '아직 낯선 도시를 다니기',
-      'CN': '在陌生的城市里找路',
-      'TR': 'Henüz tanımadığın bir şehirde yol bulmak',
-    },
-  ),
   'colours': _DeckLabel(
     {
       'GB': 'Colours', 'ES': 'Colores', 'FR': 'Les couleurs', 'DE': 'Farben',
@@ -488,44 +324,6 @@ const _deckLabels = <String, _DeckLabel>{
       'KR': '매일 쓰는 색',
       'CN': '每天都用得上的颜色',
       'TR': 'Her gün ihtiyaç duyduğun renkler',
-    },
-  ),
-  'family': _DeckLabel(
-    {
-      'GB': 'Family & People', 'ES': 'Familia y personas', 'FR': 'Famille et personnes',
-      'DE': 'Familie & Menschen', 'IT': 'Famiglia e persone', 'PT': 'Família e pessoas',
-      'JP': '家族と人々', 'KR': '가족과 사람들', 'CN': '家人与他人', 'TR': 'Aile ve İnsanlar',
-    },
-    {
-      'GB': 'The people around you',
-      'ES': 'Las personas que te rodean',
-      'FR': 'Les gens qui vous entourent',
-      'DE': 'Die Menschen um dich herum',
-      'IT': 'Le persone intorno a te',
-      'PT': 'As pessoas à sua volta',
-      'JP': 'あなたのまわりの人たち',
-      'KR': '당신 주변의 사람들',
-      'CN': '你身边的人',
-      'TR': 'Etrafındaki insanlar',
-    },
-  ),
-  'business': _DeckLabel(
-    {
-      'GB': 'Business Basics', 'ES': 'Fundamentos de negocios', 'FR': 'Bases du monde professionnel',
-      'DE': 'Business-Grundlagen', 'IT': 'Basi del business', 'PT': 'Fundamentos de negócios',
-      'JP': 'ビジネスの基本', 'KR': '비즈니스 기초', 'CN': '商务基础', 'TR': 'İş Hayatı Temelleri',
-    },
-    {
-      'GB': 'The office, meetings, and getting work done',
-      'ES': 'La oficina, las reuniones y el trabajo diario',
-      'FR': 'Le bureau, les réunions et le travail au quotidien',
-      'DE': 'Büro, Besprechungen und die tägliche Arbeit',
-      'IT': 'Ufficio, riunioni e lavoro quotidiano',
-      'PT': 'O escritório, as reuniões e o trabalho do dia a dia',
-      'JP': 'オフィス、会議、日々の仕事',
-      'KR': '사무실, 회의 그리고 업무',
-      'CN': '办公室、会议和日常工作',
-      'TR': 'Ofis, toplantılar ve günlük iş',
     },
   ),
   'time': _DeckLabel(
@@ -548,81 +346,6 @@ const _deckLabels = <String, _DeckLabel>{
     },
   ),
 };
-
-/// Meetings, contracts, and the rest of a workday.
-const _business = <_Word>[
-  _Word({
-    'GB': 'Meeting', 'ES': 'Reunión', 'FR': 'Réunion', 'DE': 'Besprechung', 'IT': 'Riunione',
-    'PT': 'Reunião', 'JP': '会議', 'KR': '회의', 'CN': '会议', 'TR': 'Toplantı',
-  }),
-  _Word({
-    'GB': 'Office', 'ES': 'Oficina', 'FR': 'Bureau', 'DE': 'Büro', 'IT': 'Ufficio',
-    'PT': 'Escritório', 'JP': 'オフィス', 'KR': '사무실', 'CN': '办公室', 'TR': 'Ofis',
-  }),
-  _Word({
-    'GB': 'Email', 'ES': 'Correo electrónico', 'FR': 'E-mail', 'DE': 'E-Mail', 'IT': 'Email',
-    'PT': 'E-mail', 'JP': 'メール', 'KR': '이메일', 'CN': '电子邮件', 'TR': 'E-posta',
-  }),
-  _Word({
-    'GB': 'Contract', 'ES': 'Contrato', 'FR': 'Contrat', 'DE': 'Vertrag', 'IT': 'Contratto',
-    'PT': 'Contrato', 'JP': '契約', 'KR': '계약', 'CN': '合同', 'TR': 'Sözleşme',
-  }),
-  _Word({
-    'GB': 'Manager', 'ES': 'Gerente', 'FR': 'Directeur', 'DE': 'Manager', 'IT': 'Direttore',
-    'PT': 'Gerente', 'JP': 'マネージャー', 'KR': '매니저', 'CN': '经理', 'TR': 'Yönetici',
-  }),
-  _Word({
-    'GB': 'Colleague', 'ES': 'Colega', 'FR': 'Collègue', 'DE': 'Kollege', 'IT': 'Collega',
-    'PT': 'Colega', 'JP': '同僚', 'KR': '동료', 'CN': '同事', 'TR': 'Meslektaş',
-  }),
-  _Word({
-    'GB': 'Salary', 'ES': 'Salario', 'FR': 'Salaire', 'DE': 'Gehalt', 'IT': 'Stipendio',
-    'PT': 'Salário', 'JP': '給料', 'KR': '급여', 'CN': '工资', 'TR': 'Maaş',
-  }),
-  _Word({
-    'GB': 'Deadline', 'ES': 'Fecha límite', 'FR': 'Date limite', 'DE': 'Frist', 'IT': 'Scadenza',
-    'PT': 'Prazo', 'JP': '締め切り', 'KR': '마감일', 'CN': '截止日期', 'TR': 'Son tarih',
-  }),
-  _Word({
-    'GB': 'Presentation', 'ES': 'Presentación', 'FR': 'Présentation', 'DE': 'Präsentation', 'IT': 'Presentazione',
-    'PT': 'Apresentação', 'JP': 'プレゼン', 'KR': '발표', 'CN': '演示', 'TR': 'Sunum',
-  }),
-  _Word({
-    'GB': 'Client', 'ES': 'Cliente', 'FR': 'Client', 'DE': 'Kunde', 'IT': 'Cliente',
-    'PT': 'Cliente', 'JP': 'クライアント', 'KR': '고객', 'CN': '客户', 'TR': 'Müşteri',
-  }),
-];
-
-/// Which of the learner's onboarding categories/purposes make a topic deck
-/// more relevant to them. Names match the backend's real seeded Category
-/// and LearningPurpose rows exactly (case-insensitive) — see
-/// `CategoriesController`/`LearningPurposesController` on VocabGrid.
-///
-/// A deck slug absent from this map (Basics, Everyday, Numbers, Colours,
-/// Time) is treated as universally useful rather than topic-specific, and
-/// always sorts ahead of an unmatched topic deck but behind a matched one.
-const _deckRelevance = {
-  'food': (categories: ['Food'], purposes: <String>[]),
-  'travel': (categories: ['Travel'], purposes: ['Travel', 'Relocation']),
-  'family': (categories: ['Family'], purposes: <String>[]),
-  'business': (categories: ['Business'], purposes: ['Business']),
-};
-
-/// Category matches count for more than purpose matches: picking "Food" as
-/// a topic is a direct, unambiguous signal, while a purpose like "Travel"
-/// is a broader intent that only loosely implies interest in any one deck.
-int _relevanceScore(String slug, Set<String> myCategories, Set<String> myPurposes) {
-  final tags = _deckRelevance[slug];
-  if (tags == null) return 0;
-  var score = 0;
-  for (final category in tags.categories) {
-    if (myCategories.contains(category.toUpperCase())) score += 2;
-  }
-  for (final purpose in tags.purposes) {
-    if (myPurposes.contains(purpose.toUpperCase())) score += 1;
-  }
-  return score;
-}
 
 /// The sample decks a learner starts with, built for their own language pair.
 class StarterContent {
@@ -696,15 +419,9 @@ class StarterContent {
     required String targetCode,
     required String targetName,
     required String nativeCode,
-    List<String> categories = const [],
-    List<String> purposes = const [],
   }) {
-    final myCategories = categories.map((c) => c.toUpperCase()).toSet();
-    final myPurposes = purposes.map((p) => p.toUpperCase()).toSet();
-
     final decks = <Deck>[];
     final cards = <FlashCard>[];
-    final scoreByDeckId = <String, int>{};
 
     void addDeck({
       required String slug,
@@ -748,30 +465,19 @@ class StarterContent {
         accentColor: color,
       ));
       cards.addAll(deckCards);
-      scoreByDeckId[deckId] = _relevanceScore(slug, myCategories, myPurposes);
     }
 
+    // Kalan beş deste bir kategoriye bağlı değil: herkes için aynı ölçüde
+    // işe yarıyorlar, o yüzden ilgi sıralaması yok. Kategoriye bağlı desteler
+    // (Food, Travel, Business, Family ve on bir tanesi daha) artık backend'de
+    // duruyor ve zaten yalnızca öğrenenin seçtiği kategoriler için kuruluyor —
+    // sıralama orada SortOrder ile veriliyor.
     addDeck(slug: 'basics',   emoji: '👋',   color: const Color(0xFF6C5CE7), words: _basics);
     addDeck(slug: 'everyday', emoji: '☕',   color: const Color(0xFF3B82F6), words: _everyday);
     addDeck(slug: 'numbers',  emoji: '🔢',   color: const Color(0xFF10B981), words: _numbers);
-    addDeck(slug: 'food',     emoji: '🍎',   color: const Color(0xFFF97316), words: _food);
-    addDeck(slug: 'travel',   emoji: '✈️',   color: const Color(0xFF0EA5E9), words: _travel);
     addDeck(slug: 'colours',  emoji: '🎨',   color: const Color(0xFFEC4899), words: _colours);
-    addDeck(slug: 'family',   emoji: '👨‍👩‍👧', color: const Color(0xFF8B5CF6), words: _family);
-    addDeck(slug: 'business', emoji: '💼',   color: const Color(0xFF334155), words: _business);
     addDeck(slug: 'time',     emoji: '🗓️',   color: const Color(0xFFF59E0B), words: _timeAndDays);
 
-    // Highest-relevance decks first; a stable index-based tiebreak keeps
-    // equally-scored decks (almost always score 0, i.e. every deck when
-    // the learner picked no matching category/purpose) in the order they
-    // were added above, rather than an unspecified sort order.
-    final order = List.generate(decks.length, (i) => i)
-      ..sort((a, b) {
-        final scoreDiff = scoreByDeckId[decks[b].id]!.compareTo(scoreByDeckId[decks[a].id]!);
-        return scoreDiff != 0 ? scoreDiff : a.compareTo(b);
-      });
-    final orderedDecks = [for (final i in order) decks[i]];
-
-    return (decks: orderedDecks, cards: cards);
+    return (decks: decks, cards: cards);
   }
 }
